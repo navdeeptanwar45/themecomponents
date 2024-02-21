@@ -1085,8 +1085,23 @@ margin: 0;
   margin: 10px;
   padding: 10px;
 }
-.drag-main{
-  border: 1px solid black;
-  height: 100px;
-  width: 100px;
+.counter-main{
+  width: 300px;
+  box-shadow: 1px 1px lightgray;
+  border: 1px solid rgb(182, 182, 182);
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.counter-heading{
+  display: flex;
+  justify-content: left;
+  margin: 0;
+  padding:0;
+}
+.counter-text{
+  display: flex;
+  text-align: left;
+  align-items: center;
+  justify-content: left;
 }

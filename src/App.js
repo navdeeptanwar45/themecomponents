@@ -1,21 +1,16 @@
 import { useState } from "react";
 import "./App.css";
+import Counter from "./components/Counter";
 import DragDrop from "./components/DragDrop";
 function App() {
-  const [childs,setChilds] = useState([1,2,3,4,5,6]);
-  function handleDrop(dragIndex,dropIndex){
-    const copychilds = [...childs]
-    const temp = copychilds[dragIndex];
-    copychilds[dragIndex]=copychilds[dropIndex];
-    copychilds[dropIndex]=temp;
-    setChilds(copychilds)
-    
-} 
-console.log(childs)
+  const [first, setfirst] = useState(0)
+ setTimeout(() => {
+  setfirst(prev=>prev+1)
+ }, 500);
  return (
-<DragDrop handleDrop={handleDrop}>
-  {childs.map((item,index)=><div key={index}  className='drag-main'>{item}</div>)}
-</DragDrop>
+<>
+<Counter heading={'Clients'} count={first}/>
+</>
  )
 }
 

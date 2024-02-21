@@ -1,7 +1,11 @@
 import React, { useRef } from "react";
 import { Children,useState } from "react";
 
-const DragDrop = ({ children,handleDrop }) => {
+const DragDrop = ({ 
+    children,
+    onDragStart=()=>{},
+    onDragEnd=()=>{} // Dragend will recieve two parameters dragindex &dropindex;
+}) => {
   const dragElement  = useRef();
   const dropElement = useRef();
 
@@ -12,14 +16,16 @@ const DragDrop = ({ children,handleDrop }) => {
           <div key={index}
             draggable
             onDragStart={() => {
+                onDragStart()
                 dragElement.current = index;
             }}
             onDragEnter={() => {
+               
                 dropElement.current = index;
 
             }}
             onDragEnd={() => {
-               handleDrop(dragElement.current,dropElement.current)
+                onDragEnd(dragElement.current,dropElement.current)
             }}
             onDragOver={(e)=>e.preventDefault()}
           >

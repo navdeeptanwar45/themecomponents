@@ -6,11 +6,10 @@ export const initialState = {
 
 
 export function contextReducer(state, action) {
-  console.log(action)
     switch (action.type) {
       case actionTypes.Add:
         return {
-          toasts: [action.payload, ...state.toasts],
+          toasts: [action.payload, ...state.toasts]
         };
       case actionTypes.Remove:
         const copy = [...state.toasts];
